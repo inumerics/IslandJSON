@@ -16,11 +16,11 @@
 #include <math.h>
 #include <errno.h>
 
-//int yyparse(void);
-//
-//extern FILE *yyin;
-//extern int yy_flex_debug;
-//extern struct json *json_root;
+int yyparse(void);
+
+extern FILE *yyin;
+extern int yy_flex_debug;
+extern struct json *json_root;
 
 /**
  * Parses JSON text from the given input stream.
@@ -33,24 +33,24 @@
 struct json *
 json_parse(FILE *in, enum json_status *status)
 {
-    struct json *result = calloc(1, sizeof(*result));
-    if (!result) return NULL;
-    
-    *status = JSON_SUCCESS;
-    return result;
-    
-//    yyin = in;
-//    yy_flex_debug = 0;
+//    struct json *result = calloc(1, sizeof(*result));
+//    if (!result) return NULL;
 //    
-//    int result = yyparse();
-//    if (result == 0) {
-//        *status = JSON_SUCCESS;
-//        return json_root;
-//    } else {
-//        *status = JSON_UNEXPECTED_CHARACTER;
-//        json_free(json_root);
-//        return NULL;
-//    }
+//    *status = JSON_SUCCESS;
+//    return result;
+    
+    yyin = in;
+    yy_flex_debug = 0;
+    
+    int result = yyparse();
+    if (result == 0) {
+        *status = JSON_SUCCESS;
+        return json_root;
+    } else {
+        *status = JSON_UNEXPECTED_CHARACTER;
+        json_free(json_root);
+        return NULL;
+    }
 }
 
 /**

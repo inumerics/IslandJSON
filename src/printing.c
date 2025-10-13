@@ -229,4 +229,5 @@ json_print(const struct json *json, FILE *out)
 {
     int ident = 0;
     json_print_indent(json, out, ident);
+    fprintf(out, "\n");
 }

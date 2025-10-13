@@ -35,7 +35,7 @@ main(int argc, const char * argv[])
     struct json *json = json_parse(in, &status);
             
     if (json && status == JSON_SUCCESS) {
-        printf("Parsing completed\n");
+        json_print(json, stdout);
     } else {
         printf("Parsing failed with error code %d\n", status);
     }

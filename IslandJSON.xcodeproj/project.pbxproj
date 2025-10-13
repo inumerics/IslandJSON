@@ -17,7 +17,41 @@
 		96EA45F82E9DB31300CAB0BB /* escape.c in Sources */ = {isa = PBXBuildFile; fileRef = 96EA45F72E9DB31300CAB0BB /* escape.c */; };
 		96EA45FA2E9DB32700CAB0BB /* decode.c in Sources */ = {isa = PBXBuildFile; fileRef = 96EA45F92E9DB32700CAB0BB /* decode.c */; };
 		96EA45FC2E9DB34A00CAB0BB /* printing.c in Sources */ = {isa = PBXBuildFile; fileRef = 96EA45FB2E9DB34A00CAB0BB /* printing.c */; };
+		96EA45FD2E9DB4F600CAB0BB /* internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 96EA45D92E9DA78300CAB0BB /* internal.h */; };
+		96EA46002E9DB52A00CAB0BB /* scanner.l in Sources */ = {isa = PBXBuildFile; fileRef = 96EA45FF2E9DB52A00CAB0BB /* scanner.l */; };
+		96EA46022E9DB5A200CAB0BB /* grammar.y in Sources */ = {isa = PBXBuildFile; fileRef = 96EA46012E9DB5A200CAB0BB /* grammar.y */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		96EA46032E9DB93200CAB0BB /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.l";
+			fileType = pattern.proxy;
+			inputFiles = (
+				"$(DERIVED_FILE_DIR)/grammar.tab.h",
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/lex.yy.c",
+			);
+			script = "cd \"$DERIVED_FILE_DIR\"\n~/source/bin/lexer -o lex.yy.c $INPUT_FILE_PATH\n";
+		};
+		96EA46042E9DB95200CAB0BB /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.y";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/grammar.tab.h",
+				"$(DERIVED_FILE_DIR)/grammar.tab.c",
+			);
+			script = "cd \"$DERIVED_FILE_DIR\"\n~/source/bin/parse -d $INPUT_FILE_PATH\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		96EA45ED2E9DAC2B00CAB0BB /* PBXContainerItemProxy */ = {
@@ -66,6 +100,8 @@
 		96EA45F72E9DB31300CAB0BB /* escape.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = escape.c; sourceTree = "<group>"; };
 		96EA45F92E9DB32700CAB0BB /* decode.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = decode.c; sourceTree = "<group>"; };
 		96EA45FB2E9DB34A00CAB0BB /* printing.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = printing.c; sourceTree = "<group>"; };
+		96EA45FF2E9DB52A00CAB0BB /* scanner.l */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.lex; path = scanner.l; sourceTree = "<group>"; };
+		96EA46012E9DB5A200CAB0BB /* grammar.y */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.yacc; path = grammar.y; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +130,7 @@
 				96EA45DB2E9DA94000CAB0BB /* .gitignore */,
 				96EA45D62E9D9D4E00CAB0BB /* include */,
 				96EA45D52E9D9D4700CAB0BB /* src */,
+				96EA45FE2E9DB50700CAB0BB /* parser */,
 				96EA45E82E9DAB3700CAB0BB /* test */,
 				96EA45CF2E9D9D2800CAB0BB /* Products */,
 			);
@@ -146,6 +183,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		96EA45FE2E9DB50700CAB0BB /* parser */ = {
+			isa = PBXGroup;
+			children = (
+				96EA45FF2E9DB52A00CAB0BB /* scanner.l */,
+				96EA46012E9DB5A200CAB0BB /* grammar.y */,
+			);
+			path = parser;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -154,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96EA45F22E9DAE3700CAB0BB /* json.h in Headers */,
+				96EA45FD2E9DB4F600CAB0BB /* internal.h in Headers */,
 				96EA45F42E9DB22E00CAB0BB /* ustring.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,6 +217,8 @@
 				96EA45CC2E9D9D2800CAB0BB /* Frameworks */,
 			);
 			buildRules = (
+				96EA46032E9DB93200CAB0BB /* PBXBuildRule */,
+				96EA46042E9DB95200CAB0BB /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -243,6 +292,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96EA46022E9DB5A200CAB0BB /* grammar.y in Sources */,
+				96EA46002E9DB52A00CAB0BB /* scanner.l in Sources */,
 				96EA45F62E9DB2FB00CAB0BB /* ustring.c in Sources */,
 				96EA45FA2E9DB32700CAB0BB /* decode.c in Sources */,
 				96EA45FC2E9DB34A00CAB0BB /* printing.c in Sources */,
