@@ -12,6 +12,11 @@
 		96EA45EF2E9DAD9200CAB0BB /* libIslandJSON.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 96EA45CE2E9D9D2800CAB0BB /* libIslandJSON.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		96EA45F12E9DAE2B00CAB0BB /* json.c in Sources */ = {isa = PBXBuildFile; fileRef = 96EA45D82E9DA74900CAB0BB /* json.c */; };
 		96EA45F22E9DAE3700CAB0BB /* json.h in Headers */ = {isa = PBXBuildFile; fileRef = 96EA45D72E9D9F3800CAB0BB /* json.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96EA45F42E9DB22E00CAB0BB /* ustring.h in Headers */ = {isa = PBXBuildFile; fileRef = 96EA45F32E9DB22A00CAB0BB /* ustring.h */; };
+		96EA45F62E9DB2FB00CAB0BB /* ustring.c in Sources */ = {isa = PBXBuildFile; fileRef = 96EA45F52E9DB2F600CAB0BB /* ustring.c */; };
+		96EA45F82E9DB31300CAB0BB /* escape.c in Sources */ = {isa = PBXBuildFile; fileRef = 96EA45F72E9DB31300CAB0BB /* escape.c */; };
+		96EA45FA2E9DB32700CAB0BB /* decode.c in Sources */ = {isa = PBXBuildFile; fileRef = 96EA45F92E9DB32700CAB0BB /* decode.c */; };
+		96EA45FC2E9DB34A00CAB0BB /* printing.c in Sources */ = {isa = PBXBuildFile; fileRef = 96EA45FB2E9DB34A00CAB0BB /* printing.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +61,11 @@
 		96EA45E02E9DAB2F00CAB0BB /* test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test; sourceTree = BUILT_PRODUCTS_DIR; };
 		96EA45E72E9DAB3700CAB0BB /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		96EA45EA2E9DAB7B00CAB0BB /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
+		96EA45F32E9DB22A00CAB0BB /* ustring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ustring.h; sourceTree = "<group>"; };
+		96EA45F52E9DB2F600CAB0BB /* ustring.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ustring.c; sourceTree = "<group>"; };
+		96EA45F72E9DB31300CAB0BB /* escape.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = escape.c; sourceTree = "<group>"; };
+		96EA45F92E9DB32700CAB0BB /* decode.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = decode.c; sourceTree = "<group>"; };
+		96EA45FB2E9DB34A00CAB0BB /* printing.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = printing.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +112,12 @@
 			isa = PBXGroup;
 			children = (
 				96EA45D92E9DA78300CAB0BB /* internal.h */,
+				96EA45F32E9DB22A00CAB0BB /* ustring.h */,
 				96EA45D82E9DA74900CAB0BB /* json.c */,
+				96EA45F52E9DB2F600CAB0BB /* ustring.c */,
+				96EA45F72E9DB31300CAB0BB /* escape.c */,
+				96EA45F92E9DB32700CAB0BB /* decode.c */,
+				96EA45FB2E9DB34A00CAB0BB /* printing.c */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -139,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96EA45F22E9DAE3700CAB0BB /* json.h in Headers */,
+				96EA45F42E9DB22E00CAB0BB /* ustring.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +243,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96EA45F62E9DB2FB00CAB0BB /* ustring.c in Sources */,
+				96EA45FA2E9DB32700CAB0BB /* decode.c in Sources */,
+				96EA45FC2E9DB34A00CAB0BB /* printing.c in Sources */,
+				96EA45F82E9DB31300CAB0BB /* escape.c in Sources */,
 				96EA45F12E9DAE2B00CAB0BB /* json.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
