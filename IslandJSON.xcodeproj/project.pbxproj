@@ -102,6 +102,7 @@
 		96EA45FB2E9DB34A00CAB0BB /* printing.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = printing.c; sourceTree = "<group>"; };
 		96EA45FF2E9DB52A00CAB0BB /* scanner.l */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.lex; path = scanner.l; sourceTree = "<group>"; };
 		96EA46012E9DB5A200CAB0BB /* grammar.y */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.yacc; path = grammar.y; sourceTree = "<group>"; };
+		96EA46052E9DC94900CAB0BB /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +127,7 @@
 		96EA45C52E9D9D2800CAB0BB = {
 			isa = PBXGroup;
 			children = (
+				96EA46052E9DC94900CAB0BB /* readme.md */,
 				96EA45EB2E9DABFA00CAB0BB /* Frameworks */,
 				96EA45DB2E9DA94000CAB0BB /* .gitignore */,
 				96EA45D62E9D9D4E00CAB0BB /* include */,
