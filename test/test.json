@@ -1,3 +1,32 @@
 {
-    "name": "JSON Test"
+    "name":"Test JSON",
+    "description": "A test file for a JSON parser.",
+    "True": true,
+    "False": false,
+    "unicode":"\uD83D\uDE00",
+    "null": null,
+    "integer": 123,
+    "negative": -456,
+    "float": 123.456,
+    "exponent": 1.23e+10,
+    "array": [
+        1,
+        "A string with \"escaped quotes\" and \\ backslash.",
+        true,
+        null,
+        {
+            "nested": "object",
+            "unicode": "\u00A9"
+        }
+    ],
+    "multiline": "Multi-line string with a newline\ncharacter.",
+    "whitespace": "  spaces, \t tabs, \r carriage return, \n newline   ",
+    "object": {
+        "empty": {},
+        "array": [],
+        "nested": [
+            { "key1": "value1" },
+            { "key2": "value2" }
+        ]
+    }
 }

@@ -35,7 +35,7 @@
 			outputFiles = (
 				"$(DERIVED_FILE_DIR)/lex.yy.c",
 			);
-			script = "cd \"$DERIVED_FILE_DIR\"\n~/source/bin/lexer -o lex.yy.c $INPUT_FILE_PATH\n";
+			script = "cd \"$DERIVED_FILE_DIR\"\n~/source/bin/islandlexer -o lex.yy.c $INPUT_FILE_PATH\n";
 		};
 		96EA46042E9DB95200CAB0BB /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
@@ -49,7 +49,7 @@
 				"$(DERIVED_FILE_DIR)/grammar.tab.h",
 				"$(DERIVED_FILE_DIR)/grammar.tab.c",
 			);
-			script = "cd \"$DERIVED_FILE_DIR\"\n~/source/bin/parse -d $INPUT_FILE_PATH\n";
+			script = "cd \"$DERIVED_FILE_DIR\"\n~/source/bin/islandparser -d $INPUT_FILE_PATH\n";
 		};
 /* End PBXBuildRule section */
 
@@ -87,6 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		969080A32E9E14DB00AD74C7 /* license.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = license.md; sourceTree = "<group>"; };
 		96EA45CE2E9D9D2800CAB0BB /* libIslandJSON.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libIslandJSON.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		96EA45D72E9D9F3800CAB0BB /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		96EA45D82E9DA74900CAB0BB /* json.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = json.c; sourceTree = "<group>"; };
@@ -128,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				96EA46052E9DC94900CAB0BB /* readme.md */,
-				96EA45EB2E9DABFA00CAB0BB /* Frameworks */,
+				969080A32E9E14DB00AD74C7 /* license.md */,
 				96EA45DB2E9DA94000CAB0BB /* .gitignore */,
 				96EA45D62E9D9D4E00CAB0BB /* include */,
 				96EA45D52E9D9D4700CAB0BB /* src */,
@@ -176,13 +177,6 @@
 				96EA45E72E9DAB3700CAB0BB /* main.c */,
 			);
 			path = test;
-			sourceTree = "<group>";
-		};
-		96EA45EB2E9DABFA00CAB0BB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		96EA45FE2E9DB50700CAB0BB /* parser */ = {
