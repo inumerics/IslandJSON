@@ -42,4 +42,7 @@ bool decode_next_UTF8(const uint8_t **ptr, const uint8_t *end, uint32_t *out);
 uint8_t *json_unescape_string(const uint8_t *start, size_t length,
                               enum json_status *error);
 
-#endif // !USTRING_H
+#endif
+
+
+

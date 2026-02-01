@@ -12,12 +12,11 @@
 
 %{
 
-#include <stdint.h>
 
 #include "json.h"
 
-
 #include <string.h>
+#include <stdint.h>
 #include <stdbool.h>
 
 #include "grammar.tab.h"
@@ -83,7 +82,7 @@ array
         $$ = $2;
     };
 values
-    : value {
+    : value { 
         $$ = json_new_array();
         json_array_add($$, $1);
     }

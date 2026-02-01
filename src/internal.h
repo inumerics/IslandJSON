@@ -94,4 +94,4 @@ double scan_json_number(const char *text);
  */
 uint8_t *scan_json_string(const char *text);
 
-#endif // !INTERNAL_H
+#endif

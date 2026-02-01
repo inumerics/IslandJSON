@@ -1,14 +1,14 @@
 /**
- * Example program for testing the JSON library.
+ * JSON parsing and printing example.
  *
- * Demonstrates how to include and link against the JSON library. The header
- * file "json.h" provides the public API declarations for parsing, printing,
- * and managing JSON values.
+ * This program reads a well-formed JSON document from standard input or from
+ * a file specified on the command line, parses it into an in-memory JSON
+ * document, and writes the document back to standard output.
  *
- * The program reads JSON text from a file specified on the command line, or
- * from standard input if no filename is given. It parses the input into an
- * in-memory JSON structure and prints the result to standard output. Any
- * syntax errors are reported with a status code from the parser.
+ * Parsing is performed by a parser generated from a grammar based on the JSON
+ * specification, with a dedicated lexer responsible for tokenizing the input
+ * stream. This example demonstrates how lexer and parser generators can be
+ * combined to build a robust, standards-compliant JSON processor.
  */
 
 #include <stdlib.h>
@@ -34,8 +34,9 @@ main(int argc, const char * argv[])
     enum json_status status;
     struct json *json = json_parse(in, &status);
             
-    if (json && status == JSON_SUCCESS) {
+    if (status == JSON_SUCCESS) {
         json_print(json, stdout);
+        fprintf(stdout, "\n\n");
     } else {
         printf("Parsing failed with error code %d\n", status);
     }

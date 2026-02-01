@@ -28,23 +28,6 @@
 struct json;
 
 /**
- * Value creation functions.
- *
- * These functions allocate and initialize new JSON values of each type.
- * The returned value is owned by the caller and must be freed, unless it is
- * inserted into a container (object or array), which then assumes ownership.
- */
-
-struct json *json_new_object(void);
-struct json *json_new_array(void);
-struct json *json_new_string(const uint8_t *string);
-struct json *json_new_number(double number);
-struct json *json_new_boolean(bool value);
-struct json *json_new_null(void);
-
-void json_free(struct json *value);
-
-/**
  * Parsing and printing functions.
  *
  * Reads JSON text from a stream and constructs the corresponding value tree.
@@ -63,6 +46,23 @@ enum json_status {
 
 struct json *json_parse(FILE *in, enum json_status *status);
 void json_print(const struct json *json, FILE *out);
+
+/**
+ * Value creation functions.
+ *
+ * These functions allocate and initialize new JSON values of each type.
+ * The returned value is owned by the caller and must be freed, unless it is
+ * inserted into a container (object or array), which then assumes ownership.
+ */
+
+struct json *json_new_object(void);
+struct json *json_new_array(void);
+struct json *json_new_string(const uint8_t *string);
+struct json *json_new_number(double number);
+struct json *json_new_boolean(bool value);
+struct json *json_new_null(void);
+
+void json_free(struct json *value);
 
 /**
  * Data types.
@@ -105,8 +105,8 @@ bool json_object_remove(struct json *json, const uint8_t *key);
  * position.
  */
 
-bool json_array_add(struct json *json, struct json *value);
-bool json_array_remove(struct json *json, size_t index);
+bool   json_array_add(struct json *json, struct json *value);
+bool   json_array_remove(struct json *json, size_t index);
 size_t json_array_length(const struct json *json);
 
 /**

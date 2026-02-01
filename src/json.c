@@ -33,12 +33,6 @@ extern struct json *json_root;
 struct json *
 json_parse(FILE *in, enum json_status *status)
 {
-//    struct json *result = calloc(1, sizeof(*result));
-//    if (!result) return NULL;
-//    
-//    *status = JSON_SUCCESS;
-//    return result;
-    
     yyin = in;
     yy_flex_debug = 0;
     
